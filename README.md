@@ -21,7 +21,7 @@ OpenAI API (or custom AI model) – Title generation
 
 🚀 Installation & Setup
 1️⃣ Clone the Repository
-  git clone https://github.com/yourusername/ai-title-generator.git
+  git clone https://github.com/kinjalparmar58/ai-title-generator.git
   cd ai-title-generator
 2️⃣ Install Dependencies
   composer install
