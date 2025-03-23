@@ -1,100 +1,77 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Title Generator - Professional SEO Titles</title>
+    <title>AI Title Generator - Generate SEO-Friendly Titles Instantly</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Generate high-converting, SEO-friendly titles for blogs, marketing, and business content. AI-powered title generation for professionals.">
-    <meta name="keywords" content="AI title generator, SEO titles, marketing content, business copywriting, AI-powered writing">
+    <meta name="description" content="Generate catchy and SEO-friendly titles instantly with our AI-powered title generator. Perfect for blogs, articles, and marketing content.">
+    <meta name="keywords" content="AI title generator, SEO-friendly titles, blog title generator, catchy titles, AI-powered content">
     <meta name="author" content="Your Brand Name">
     <meta name="robots" content="index, follow">
 
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="AI Title Generator - Generate SEO-Friendly Titles Instantly">
+    <meta property="og:description" content="Struggling with content ideas? Use our AI-powered tool to generate catchy and SEO-friendly titles for blogs, articles, and more!">
+    <meta property="og:image" content="{{ asset('images/ai-title-generator-banner.jpg') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Title Generator - Create SEO-Optimized Titles">
+    <meta name="twitter:description" content="Use AI to generate high-quality, click-worthy titles for your content.">
+    <meta name="twitter:image" content="{{ asset('images/ai-title-generator-banner.jpg') }}">
+
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Three.js (for 3D Elements) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            overflow-x: hidden;
+        body::before, body::after {
+            content: "";
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(138,43,226,0.8) 0%, rgba(0,0,0,0) 80%);
+            z-index: -1;
         }
-        .glassmorphism {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        body::before {
+            top: 0;
+            left: 0;
+            border-top-left-radius: 50px;
         }
-        .brand-gradient {
-            background: linear-gradient(135deg, #3b82f6, #06b6d4);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .button-hover {
-            transition: all 0.3s ease-in-out;
-        }
-        .button-hover:hover {
-            transform: scale(1.05);
-        }
-        .floating {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #3b82f6, #06b6d4);
-            border-radius: 50%;
-            opacity: 0.2;
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+        body::after {
+            bottom: 0;
+            right: 0;
+            border-bottom-right-radius: 50px;
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen relative">
-
-    <!-- Floating 3D Elements -->
-    <div class="floating" style="top: 10%; left: 15%;"></div>
-    <div class="floating" style="top: 50%; right: 20%;"></div>
-    <div class="floating" style="bottom: 10%; left: 40%;"></div>
-
-    <div class="relative z-10 w-full max-w-lg glassmorphism p-8 rounded-2xl shadow-2xl border border-gray-700 text-center">
-        <h1 class="text-3xl font-bold brand-gradient mb-4">🚀 AI Title Generator</h1>
-        <p class="text-gray-400 mb-6">Generate high-converting, SEO-friendly titles for your business, blogs, and marketing content.</p>
-
-        <!-- Error Message -->
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen relative">
+    <div class="w-full max-w-lg bg-gray-800 p-8 rounded-2xl shadow-lg text-center relative">
+        <h1 class="text-3xl font-bold text-purple-400 mb-4">🚀 AI Title Generator</h1>
+        <p class="text-gray-400 mb-6">Generate catchy and SEO-friendly titles for your blogs, articles, and marketing content.</p>
+        
         <div id="error-message" class="hidden text-red-400 bg-red-600/20 border border-red-500 rounded-lg px-4 py-2 mb-3"></div>
-
-        <!-- Input Field -->
-        <div class="relative">
-            <input type="text" name="keyword" id="description" required placeholder="e.g., AI Marketing Strategies"
-                   class="w-full px-5 py-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <button id="generateTitle"
-                    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg button-hover transition duration-300">
-                🚀 Generate
-            </button>
-        </div>
-
-        <!-- Generated Title Output -->
+        <input type="text" name="keyword" id="description" required placeholder="e.g., Golden Hour Photography"
+               class="w-full px-4 py-2 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <button id="generateTitle"
+                class="mt-4 w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 rounded-lg transition duration-300">
+            🚀 Generate Titles
+        </button>
+        
         <div id="result" class="mt-6 hidden">
-            <h2 class="text-lg font-semibold text-teal-300 mb-2">✨ AI-Generated Titles:</h2>
+            <h2 class="text-lg font-semibold text-purple-300 mb-2">✨ Generated Titles:</h2>
             <div id="title-list" class="text-left space-y-4"></div>
         </div>
     </div>
-
-    <!-- Three.js Canvas for 3D Animation -->
-    <canvas id="backgroundCanvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
-
-    <!-- jQuery & Three.js Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         // AJAX Call for AI Title Generation
@@ -167,6 +144,5 @@
         }
         animate();
     </script>
-
 </body>
 </html>
