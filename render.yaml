@@ -2,7 +2,7 @@ services:
   - type: web
     name: ai-title-generator
     runtime: docker
-    repo: https://github.com/your-username/your-repo-name
+    repo: https://github.com/kinjalparmar58/ai-title-generator
     branch: main
     envVars:
       - key: APP_ENV
